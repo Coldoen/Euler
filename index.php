@@ -1,10 +1,9 @@
-<?php require 'header.php'; ?>
+<?php require './template/header.php'; ?>
         <!-- Page content-->
         <div class="container">
             <div class="text-center mt-5">
-                <h1>A Bootstrap 5 Starter Template</h1>
+                <h1>A webstie host for the first hundread Problems of the Euler project solved using PHP</h1>
                 <p class="lead">A complete project boilerplate built with Bootstrap</p>
-                <p>Bootstrap v5.2.3</p>
             </div>
         </div>
-<?php require 'footer.php'; ?>
+<?php require './template/footer.php'; ?>

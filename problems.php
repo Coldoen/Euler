@@ -23,24 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Add more difficulty levels and problems here
     ];
 }
-
-// Define a function to display problems for the selected difficulty
-function displayProblems($selectedDifficulty, $problems)
-{
-    if (isset($problems[$selectedDifficulty])) {
-        echo '<div class="problem-list">';
-        foreach ($problems[$selectedDifficulty] as $problemTitle) {
-            echo '<div class="problem">';
-            echo '<a href="problems.php?difficulty=' . urlencode($selectedDifficulty) . '&title=' . urlencode($problemTitle) . '">' . $problemTitle . '</a>';
-            echo '</div>';
-        }
-        echo '</div>';
-    }else{
-        echo '<div class="alert alert-warning" role="alert">
-  No problems have been found for this difficulty!
-</div>';
-    }
-}
 ?>
 
 <!-- Page content-->
@@ -57,7 +39,7 @@ function displayProblems($selectedDifficulty, $problems)
     </form>
 
     <?php if (isset($problems)) {
-        displayProblems($selectedDifficulty, $problems);
+        require_once("./functions/displayProblem.php"); displayProblems($selectedDifficulty, $problems);
     } ?>
 </div>
 

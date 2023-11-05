@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Fetch problems based on the selected difficulty level from your data source
     $problems = [
         '5%' => [
-            "Largest palindrom product",
-            "Largest prime factor",
-            "Sum square difference",
-            "Sum of multiples of 3 and 5 below a number"
+            ["Largest palindrom product", "largestPalindromProduct"],
+            ["Largest prime factor", "largestPrimeFactor"],
+            ["Sum square difference", "sumSquareDiference"],
+            ["Sum of multiples of 3 and 5 below a number", "mult3X5"]
         ],
         '15%' => [
             "Another problem 1",

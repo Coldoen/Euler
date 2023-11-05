@@ -3,9 +3,9 @@ function displayProblems($selectedDifficulty, $problems)
 {
     if (isset($problems[$selectedDifficulty])) {
         echo '<div class="problem-list">';
-        foreach ($problems[$selectedDifficulty] as $problemTitle) {
+        foreach ($problems[$selectedDifficulty] as [$problemTitle, $problemCode]) {
             echo '<div class="problem">';
-            echo '<a href="solution.php?title=' . urlencode($problemTitle) . '">' . $problemTitle . '</a>';
+            echo '<a href="solution.php?title=' . urlencode($problemTitle) . '&code=' . $problemCode .'">' . $problemTitle . '</a>';
             echo '</div>';
         }
         echo '</div>';

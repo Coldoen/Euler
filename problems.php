@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Fetch problems based on the selected difficulty level from your data source
     $problems = [
         '5%' => [
-            "Largest palindrom product",
-            "Largest prime factor",
-            "Sum square difference",
-            "Sum of multiples of 3 and 5 below a number"
+            ["Largest palindrom product", "largestPalindromProduct"],
+            ["Largest prime factor", "largestPrimeFactor"],
+            ["Sum square difference", "sumSquareDiference"],
+            ["Sum of multiples of 3 and 5 below a number", "mult3X5"]
         ],
         '15%' => [
             "Another problem 1",
@@ -22,24 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ],
         // Add more difficulty levels and problems here
     ];
-}
-
-// Define a function to display problems for the selected difficulty
-function displayProblems($selectedDifficulty, $problems)
-{
-    if (isset($problems[$selectedDifficulty])) {
-        echo '<div class="problem-list">';
-        foreach ($problems[$selectedDifficulty] as $problemTitle) {
-            echo '<div class="problem">';
-            echo '<a href="problems.php?difficulty=' . urlencode($selectedDifficulty) . '&title=' . urlencode($problemTitle) . '">' . $problemTitle . '</a>';
-            echo '</div>';
-        }
-        echo '</div>';
-    }else{
-        echo '<div class="alert alert-warning" role="alert">
-  No problems have been found for this difficulty!
-</div>';
-    }
 }
 ?>
 
@@ -57,7 +39,7 @@ function displayProblems($selectedDifficulty, $problems)
     </form>
 
     <?php if (isset($problems)) {
-        displayProblems($selectedDifficulty, $problems);
+        require_once("./functions/displayProblem.php"); displayProblems($selectedDifficulty, $problems);
     } ?>
 </div>
 

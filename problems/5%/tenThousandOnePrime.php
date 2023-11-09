@@ -1,13 +1,24 @@
-<?php include '../../functions/checkPrime.php';
-$nbPrime = 0;
-$number = 1;
+<?php include './functions/checkPrime.php';
 
-$break = (int)readline('Please choose a number : ');
-while($nbPrime != $break){
-    $number++;
-    if(checkPrime($number) == true){
-        $nbPrime++;
-    }
+function descriptionInput(){
+    echo "Please choose a number";
+    return 0;
 }
 
-echo("The $nbPrime-th prime number is $number");
+function tenThousandOnePrime($input){
+    $nbPrime = 0;
+    $number = 1;
+
+    while($nbPrime != $input){
+        $number++;
+        if(checkPrime($number) == true){
+            $nbPrime++;
+        }
+    }
+    return $number;
+}
+
+function descriptionOutput($input, $output){
+    echo("The $input-th prime number is $output");
+    return 0;
+}

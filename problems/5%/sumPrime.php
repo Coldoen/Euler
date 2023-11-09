@@ -1,13 +1,23 @@
-<?php include '../../functions/crible.php';
+<?php include './functions/crible.php';
 
-$sum = 0;
-$break = (int)readline('Please choose a number to find the sum of all prime number bellow this number : ');
-
-$primes = crible($break);
-for($i = 0 ; $i <= count($primes) ;$i++){
-    $sum += $primes[$i];
+function descriptionInput(){
+    echo "Please choose a number to find the sum of all prime numbers bellow this number";
+    return 0;
 }
 
-echo("The sum of all multiples of 3 and 5 bellow $break is $sum");
+function sumPrime($input){
+    $sum = 0;
+    $primes = crible($input);
+    for($i = 0 ; $i < count($primes) ;$i++){
+        $sum += $primes[$i];
+    } 
+    return $sum;  
+}
+
+function descriptionOutput($input, $output){
+    //Maybe have some more details of the computation ?
+    echo("The sum of all prime numbers bellow $input is $output");
+    return 0;
+}
 
 

@@ -1,5 +1,6 @@
 <?php
 // Choose a number not bigger than 20 
+//To Optimize
 $break = (int)readline('Please choose a number to find the smallest multiple off all natural numbers from one to your number : ');
 $smallestMult = $break;
 

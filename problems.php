@@ -32,16 +32,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!-- Page content-->
 <div class="text-center mt-5">
-    <h3>Difficulty</h3>
-    <form method="post" action="">
-        <select class="form-select" aria-label="Default select example" name="difficulty">
-            <option selected>Choose a difficulty</option>
-            <option value="5%">5%</option>
-            <option value="15%">15%</option>
-            <option value="30%">30%</option>
-        </select>
-        <input type="submit" value="Show Problems">
-    </form>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <p style="width: 70%;">The different problems are (for now) sorted according to their level of difficulty based on project Euler website's notation</p>
+        <form method="post" action="" style="width: 25%;">
+            <select class="form-select" aria-label="Default select example" name="difficulty">
+                <option selected>Choose a difficulty</option>
+                <option value="5%">5%</option>
+                <option value="15%">15%</option>
+                <option value="30%">30%</option>
+            </select>
+            <input type="submit" value="Show Problems">
+        </form>
+    </div>
 
     <?php if (isset($problems)) {
         require_once("./functions/displayProblem.php"); displayProblems($selectedDifficulty, $problems);

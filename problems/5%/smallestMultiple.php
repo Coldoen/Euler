@@ -1,16 +1,24 @@
 <?php
-// Choose a number not bigger than 20 
-//To Optimize
-$break = (int)readline('Please choose a number to find the smallest multiple off all natural numbers from one to your number : ');
-$smallestMult = $break;
+$break = (int)readline('Please choose a number to find the smallest multiple of all natural numbers from 1 to your number: ');
 
-while(true){
-    for($i = 1 ; $i != $break ; $i++){
-        if($smallestMult % $i != 0){
-            $smallestMult++;
-            $i = 1;
-        }
+function gcd($a, $b) {
+    while ($b != 0) {
+        $temp = $b;
+        $b = $a % $b;
+        $a = $temp;
     }
-    echo("The smallest multiple off all first $break natural numbers is $smallestMult\n");
-    break;
+    return $a;
 }
+
+function lcm($a, $b) {
+    return ($a * $b) / gcd($a, $b);
+}
+
+$smallestMult = 1;
+
+for ($i = 2; $i <= $break; $i++) {
+    $smallestMult = lcm($smallestMult, $i);
+}
+
+echo "The smallest multiple of all natural numbers from 1 to $break is $smallestMult\n";
+?>

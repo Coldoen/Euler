@@ -21,8 +21,7 @@ function powerDigitSum($input){
 }
 
 function descriptionOutput($input, $output){
-    //Improvement : Display the power in math form 
-    echo "The sum of the digits of 2 power $input is $output";
+    echo "The sum of the digits of 2". '<sup>'. $input . '</sup>' . "is $output";
     return 0;
 }
 ?>

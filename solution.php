@@ -32,6 +32,7 @@ if (isset($_POST['break']) && !empty($code)) {
 require './template/header.php'; 
 ?>
 <!-- Page content-->
+<link rel="stylesheet" href="./solution.css">
 <div class="text-center mt-5">
     <h3><?php echo $problem?></h3>
     <!-- In form, concatenate the link of solution with the value of code and problem to keep this value in the file -->
@@ -47,15 +48,17 @@ require './template/header.php';
     </form>
     <!-- Hide the solution part before clicking on 'Compute' and if the run time is > instantanous, add a loading sign 
     Also need to reformulate some solution's label to be more understandable-->
-    <div class="mb-3">
-        <h3>Solution</h3>
-        <?php
-        // Check if the result is available in the session and display it
-        if (isset($_POST['break'])) {
-            $result = $code($break);
-            descriptionOutput($break, $result);
-        }        
-        ?>
+    <div class="mb-3" style="<?php echo (empty($_POST['break']) ? 'display: none;' : ''); ?>">
+        <div class="solution-box">
+            <h3>Solution</h3>
+            <?php
+            // Check if the result is available in the session and display it
+            if (isset($_POST['break'])) {
+                $result = $code($break);
+                descriptionOutput($break, $result);
+            }        
+            ?>
+        </div>
     </div>
     <h3>Learn more about the problem</h3>
 </div>

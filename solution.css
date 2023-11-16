@@ -1,5 +1,14 @@
 .solution-box{
     border: 1px solid #000000;
+    background-color: green;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.no-solution{
+    border: 1px solid #000000;
+    background-color: red;
     max-width: 600px;
     margin: 0 auto;
     padding: 10px;

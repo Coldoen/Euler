@@ -1,4 +1,5 @@
 <?php
+$start_time = microtime(true); 
 
 function descriptionInput(){
     echo "Please choose a number to find the sum of the digits of 2 power this number";
@@ -7,8 +8,6 @@ function descriptionInput(){
 
 function powerDigitSum($input){
     $sum = 0;
-
-    $result = 2**$input;
 
     $accurate = bcpow('2', $input);
     $formatted_number = ltrim($accurate, '0'); 
@@ -21,7 +20,10 @@ function powerDigitSum($input){
 }
 
 function descriptionOutput($input, $output){
-    echo "The sum of the digits of 2". '<sup>'. $input . '</sup>' . "is $output";
+    global $start_time;
+    require_once './functions/computeTime.php'; $time = computeTime($start_time);
+    echo "The sum of the digits of 2". '<sup>'. $input . '</sup> ' . " is $output";
+    echo"<p>Execution time : $time s</p>"; 
     return 0;
 }
 ?>

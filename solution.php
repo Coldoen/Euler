@@ -4,6 +4,7 @@ session_start();
 $problem = "";
 $problemFilePath = '';
 $code;
+$category;
 $result = null;
 
 if (isset($_GET['title'])) {
@@ -17,13 +18,16 @@ if (isset($_GET['code'])) {
     $code =  $problemCode;
 }
 
-$problemFilePath = 'problems/5%/' . $code . '.php';
+if (isset($_GET['category'])) {
+    $problemCategory = $_GET['category'];
+    $category =  $problemCategory;
+}
+
+$problemFilePath = 'problems/'.$category. '/' . $code . '.php';
 require($problemFilePath);
 
 if (isset($_POST['break']) && !empty($code)) {
-    // Construct the path to the problem file based on $code
     $break = (int)$_POST['break'];
-
     
     // Store $break in the session
     $_SESSION['break'] = $break;
@@ -46,20 +50,21 @@ require './template/header.php';
             <button type="submit" class="btn btn-primary">Compute</button>
         </div>
     </form>
-    <!-- Hide the solution part before clicking on 'Compute' and if the run time is > instantanous, add a loading sign 
-    Also need to reformulate some solution's label to be more understandable-->
     <div class="mb-3" style="<?php echo (empty($_POST['break']) ? 'display: none;' : ''); ?>">
-        <div class="solution-box">
-            <h3>Solution</h3>
-            <?php
-            // Check if the result is available in the session and display it
-            if (isset($_POST['break'])) {
-                $result = $code($break);
-                descriptionOutput($break, $result);
-            }        
-            ?>
-        </div>
+    <?php
+    if (isset($_POST['break'])) {
+        $result = $code($break);
+        $resultCount = is_array($result) ? count($result) : 1;
+    }
+    ?>
+    <div class="<?php echo (($resultCount === 1  || $resultCount === 2 && $result['result'] !== null) || !empty($result['result'])) ? 'solution-box' : 'no-solution'; ?>">
+        <h3>Solution</h3>
+        <?php
+            descriptionOutput($break, $result);      
+        ?>
     </div>
+</div>
+
     <h3>Learn more about the problem</h3>
 </div>
 <?php require './template/footer.php'; ?>

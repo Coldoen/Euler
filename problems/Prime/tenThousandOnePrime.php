@@ -1,4 +1,6 @@
-<?php include './functions/checkPrime.php';
+<?php 
+$start_time = microtime(true); 
+include './functions/checkPrime.php';
 
 function descriptionInput(){
     echo "Please choose a number";
@@ -19,6 +21,9 @@ function tenThousandOnePrime($input){
 }
 
 function descriptionOutput($input, $output){
+    global $start_time;
+    require_once './functions/computeTime.php'; $time = computeTime($start_time);
     echo("The $input-th prime number is $output");
+    echo"<p>Execution time : $time s</p>"; 
     return 0;
 }

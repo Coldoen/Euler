@@ -9,23 +9,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Fetch problems based on the selected difficulty level from your data source
     $problems = [
-        '5%' => [
-            ["Even Fibonacci Numbers", "evenFibo"],
-            ["Largest Palindrome Product","largestPalindromProduct"],
+        'Prime' => [
+            ["Summation of primes", "sumPrime"],
+            ["List of primes", "tenThousandOnePrime"],
+            ["Largest prime factor", "largestPrimeFactor"],
+        ],
+        'Fibonacci' => [
+            ["Even Fibonacci numbers", "evenFibo"],
+            ["Indexing Fibonacci numbers","nDigitIndexFibo"]
+        ],
+        'Palindrom' => [
+            ["Largest palindrom product","largestPalindromProduct"],
+            ["Double-base palindrom","doubleBasePalindrom"]
+        ],
+        'Factorial' => [
+            ["Factorial digit sum","factorialDigitSum"]
+        ],
+        'Others' => [
             ["Sum square difference", "sumSquareDiference"],
             ["Sum of multiples of 3 and 5 below a number", "mult3X5"],
-            ["Summation of primes", "sumPrime"],
-            ["Listing of primes", "tenThousandOnePrime"],
+            ["Smallest multiple", "smallestMultiple"],
             ["Highly Divisible Triangular Number", "triangularNumberDivisor"],
             ["Power digit sum","powerDigitSum"],
-            ["Pythagorean Triplet","pythagoreanTriplet"]
+            ["Pythagorean Triplet","pythagoreanTriplet"],
+            ["Longest collatz sequence","longestCollatzSequence"],
+            ["Amicable numbers","amicable"],
+            ["Self powers", "SelfPower"]
         ],
-        '15%' => [
-            "Another problem 1",
-            "Another problem 2",
-            // Add more problems here
-        ],
-        // Add more difficulty levels and problems here
     ];
 }
 ?>
@@ -37,9 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="post" action="" style="width: 25%;">
             <select class="form-select" aria-label="Default select example" name="difficulty">
                 <option selected>Choose a difficulty</option>
-                <option value="5%">5%</option>
-                <option value="15%">15%</option>
-                <option value="30%">30%</option>
+                <option value="Prime">Prime</option>
+                <option value="Fibonacci">Fibonacci</option>
+                <option value="Palindrom">Palindrom</option>
+                <option value="Factorial">Factorial</option>
+                <option value="Others">Others</option>
             </select>
             <input type="submit" value="Show Problems">
         </form>

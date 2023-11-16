@@ -1,4 +1,5 @@
 <?php
+$start_time = microtime(true); 
 include './functions/countDivisors.php';
 
 function descriptionInput(){
@@ -25,6 +26,9 @@ function triangularNumberDivisor($input){
 }
 
 function descriptionOutput($input, $output){
+    global $start_time;
+    require_once './functions/computeTime.php'; $time = computeTime($start_time);
     echo "The first triangular number to have over $input divisors is $output";
+    echo"<p>Execution time : $time s</p>"; 
     return 0;
 }

@@ -1,4 +1,5 @@
 <?php
+$start_time = microtime(true); 
 
 function descriptionInput(){
     echo "Please choose a number to find if a pythagorean triplet equals this number";
@@ -29,13 +30,19 @@ function pythagoreanTriplet($input){
 }
 
 function descriptionOutput($input, $output){
+    global $start_time;
     $result = $output['result'];
     $abcValues = $output['abcValues'];
+
     if($result != null){
         extract($abcValues);
+        require_once './functions/computeTime.php'; $time = computeTime($start_time);
         echo("The only pythagorean triplet where the sum of the 3 numbers equals $input is for a = $a, b = $b and c = $c and the value of abc is $result\n");
+        echo("Execution time : $time s"); 
     }else{
+        require_once './functions/computeTime.php'; $time = computeTime($start_time);
         echo("There are no pythagorean triplet such that the sum of the 3 numbers equals $input");
+        echo("Execution time : $time s"); 
     }
     return 0;
 }

@@ -1,4 +1,6 @@
 <?php
+$start_time = microtime(true); 
+
 function descriptionInput(){
     echo "Please choose a number to find the sum square difference of this number";
     return 0;
@@ -30,8 +32,10 @@ function sumSquareDiference($input) {
 
 function descriptionOutput($input, $output){
     //Maybe have some more details of the computation ?
+    global $start_time;
+    require_once './functions/computeTime.php'; $time = computeTime($start_time);
     echo("The sum square difference of $input is $output");
+    echo"<p>Execution time : $time s</p>"; 
     return 0;
 }
-
 ?>

@@ -1,4 +1,6 @@
 <?php
+$start_time = microtime(true); 
+include './functions/palindrom.php';
 
 function descriptionInput(){
     echo "Please choose a number to find the largest palindrome made from the product of this number";
@@ -6,18 +8,8 @@ function descriptionInput(){
 }
 
 function largestPalindromProduct($input){
-    $largestPalindrom = 0;
-    $xYValues = array();
-    for($i = 0 ; $i < $input ; $i++){
-        for($j = 0 ; $j < $input ; $j++){
-            $temp = $j * $i;
-            if($temp == strrev($temp) && $temp > $largestPalindrom){
-                $largestPalindrom = $temp;
-                $xYValues = array('x' => $i, 'y' => $j);
-            }
-        }
-    }
-    return array('result' => $largestPalindrom, 'xYValues' => $xYValues);
+    $result = palindrom($input, 'array');
+    return $result;
 }
 
 function descriptionOutput($input, $output){
@@ -27,7 +19,9 @@ function descriptionOutput($input, $output){
     $x = isset($xYValues['x']) ? $xYValues['x'] : 0;
     $y = isset($xYValues['y']) ? $xYValues['y'] : 0;
 
+    global $start_time;
+    require_once './functions/computeTime.php'; $time = computeTime($start_time);
     echo("The largest palindrom of the multiplication of $input is $result obtained by $x * $y");
-        return 0;
-    }
-
+    echo"<p>Execution time : $time s</p>s"; 
+    return 0;
+}

@@ -12,7 +12,7 @@ function displayProblems($selectedDifficulty, $problems)
             }
 
             echo '<div class="col-md-4 problem">';
-            echo '<a href="solution.php?title=' . urlencode($problemTitle) . '&code=' . $problemCode .'">' . $problemTitle . '</a>';
+            echo '<a href="solution.php?title=' . urlencode($problemTitle). '&category=' . $selectedDifficulty. '&code=' . $problemCode .'">' . $problemTitle . '</a>';
             echo '</div>';
 
             $counter++;

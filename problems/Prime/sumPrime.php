@@ -1,4 +1,6 @@
-<?php include './functions/crible.php';
+<?php 
+$start_time = microtime(true); 
+include './functions/crible.php';
 
 function descriptionInput(){
     echo "Please choose a number to find the sum of all prime numbers bellow this number";
@@ -16,8 +18,10 @@ function sumPrime($input){
 
 function descriptionOutput($input, $output){
     //Maybe have some more details of the computation ?
+    global $start_time;
+    require_once './functions/computeTime.php'; $time = computeTime($start_time);
     echo("The sum of all prime numbers bellow $input is $output");
+    echo"<p>Execution time : $time s</p>"; 
     return 0;
 }
-
 

@@ -42,5 +42,9 @@ Thumbs.db
 /js/coverage/
 /node_modules/
 
-# Files to ignore
-isleep.php
+# Files to ignore if a function isn't well implemented or need to be re-thinked
+largestPrimeFactor.php
+digitFifthPower.php
+Champernowne.php
+permutedMultiple.php
+circularPrime.php

@@ -7,6 +7,7 @@ function descriptionInput(){
 }
 
 function powerDigitSum($input){
+    //Merge this function with powerfulDigitSum
     $sum = 0;
 
     $accurate = bcpow('2', $input);

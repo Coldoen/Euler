@@ -32,7 +32,7 @@ function amicable($input){
 function descriptionOutput($input, $output){
     global $start_time;
     $time = microtime(true) - $start_time;
-    echo "The Sum of amicable numbers within the range of $input is $output";
+    echo "The sum of amicable numbers within the range of $input is $output";
     echo "<p>Execution time: $time s</p>";
     return 0;
 }

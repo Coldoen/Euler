@@ -9,10 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Fetch problems based on the selected difficulty level from your data source
     $problems = [
-        'Prime' => [
-            ["Summation of primes", "sumPrime"],
-            ["List of primes", "tenThousandOnePrime"],
-            ["Largest prime factor", "largestPrimeFactor"],
+        'Factorial' => [
+            ["Factorial digit sum","factorialDigitSum"]
         ],
         'Fibonacci' => [
             ["Even Fibonacci numbers", "evenFibo"],
@@ -22,19 +20,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ["Largest palindrom product","largestPalindromProduct"],
             ["Double-base palindrom","doubleBasePalindrom"]
         ],
-        'Factorial' => [
-            ["Factorial digit sum","factorialDigitSum"]
+        'Prime' => [
+            ["Summation of primes", "sumPrime"],
+            ["List of primes", "tenThousandOnePrime"],
+        ],
+        'Power' =>[
+            ["Distinct powers", "distinctPower"],
+            ["Power digit sum","powerDigitSum"],
+            ["Powerful digit sum", "powerfulDigitSum"],
+            ["Self powers","selfPower"]
         ],
         'Others' => [
             ["Sum square difference", "sumSquareDiference"],
             ["Sum of multiples of 3 and 5 below a number", "mult3X5"],
             ["Smallest multiple", "smallestMultiple"],
             ["Highly Divisible Triangular Number", "triangularNumberDivisor"],
-            ["Power digit sum","powerDigitSum"],
             ["Pythagorean Triplet","pythagoreanTriplet"],
             ["Longest collatz sequence","longestCollatzSequence"],
             ["Amicable numbers","amicable"],
-            ["Self powers", "SelfPower"]
         ],
     ];
 }
@@ -51,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="Fibonacci">Fibonacci</option>
                 <option value="Palindrom">Palindrom</option>
                 <option value="Factorial">Factorial</option>
+                <option value="Power">Power</option>
                 <option value="Others">Others</option>
             </select>
             <input type="submit" value="Show Problems">

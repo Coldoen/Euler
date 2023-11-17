@@ -2,10 +2,8 @@
 function generateRandomProblemLink() {
     // Liste des problèmes disponibles avec leurs titres et codes
     $problems = [
-        'Prime' => [
-            ["Summation of primes", "sumPrime"],
-            ["List of primes", "tenThousandOnePrime"],
-            ["Largest prime factor", "largestPrimeFactor"],
+        'Factorial' => [
+            ["Factorial digit sum","factorialDigitSum"]
         ],
         'Fibonacci' => [
             ["Even Fibonacci numbers", "evenFibo"],
@@ -15,19 +13,24 @@ function generateRandomProblemLink() {
             ["Largest palindrom product","largestPalindromProduct"],
             ["Double-base palindrom","doubleBasePalindrom"]
         ],
-        'Factorial' => [
-            ["Factorial digit sum","factorialDigitSum"]
+        'Prime' => [
+            ["Summation of primes", "sumPrime"],
+            ["List of primes", "tenThousandOnePrime"],
+        ],
+        'Power' =>[
+            ["Distinct powers", "distinctPower"],
+            ["Power digit sum","powerDigitSum"],
+            ["Powerful digit sum", "powerfulDigitSum"],
+            ["Self powers","selfPower"]
         ],
         'Others' => [
             ["Sum square difference", "sumSquareDiference"],
             ["Sum of multiples of 3 and 5 below a number", "mult3X5"],
             ["Smallest multiple", "smallestMultiple"],
             ["Highly Divisible Triangular Number", "triangularNumberDivisor"],
-            ["Power digit sum","powerDigitSum"],
             ["Pythagorean Triplet","pythagoreanTriplet"],
             ["Longest collatz sequence","longestCollatzSequence"],
             ["Amicable numbers","amicable"],
-            ["Self powers", "SelfPower"]
         ],
     ];
     

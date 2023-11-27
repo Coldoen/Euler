@@ -51,20 +51,20 @@ require './template/header.php';
         </div>
     </form>
     <div class="mb-3" style="<?php echo (empty($_POST['break']) ? 'display: none;' : ''); ?>">
-    <?php
-    if (isset($_POST['break'])) {
-        $result = $code($break);
-        $resultCount = is_array($result) ? count($result) : 1;
-    }
-    ?>
-    <div class="<?php echo (($resultCount === 1  || $resultCount === 2 && $result['result'] !== null) || !empty($result['result'])) ? 'solution-box' : 'no-solution'; ?>">
-        <h3>Solution</h3>
         <?php
-            descriptionOutput($break, $result);      
+        if (isset($_POST['break'])) {
+            $result = $code($break);
+            $resultCount = is_array($result) ? count($result) : 1;
+        }
         ?>
+        <div div class="<?php echo (($resultCount === 1 || ($resultCount === 2 && $result['result'] !== null)) || !empty($result['result'])) ? 'box solution-box' : 'box no-solution'; ?>">
+            <h3>Solution</h3>
+            <?php
+                descriptionOutput($break, $result);      
+            ?>
+        </div>
     </div>
-</div>
-
     <h3>Learn more about the problem</h3>
+    <?php moreInfos();?>
 </div>
 <?php require './template/footer.php'; ?>

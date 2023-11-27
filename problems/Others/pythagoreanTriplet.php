@@ -41,8 +41,13 @@ function descriptionOutput($input, $output){
         echo("Execution time : $time s"); 
     }else{
         require_once './functions/computeTime.php'; $time = computeTime($start_time);
-        echo("There are no pythagorean triplet such that the sum of the 3 numbers equals $input");
+        echo("There are no pythagorean triplet such that the sum of the 3 numbers equals $input\n");
         echo("Execution time : $time s"); 
     }
     return 0;
 }
+
+function moreInfos(){
+    echo '<a class="" aria-current="" href="https://projecteuler.net/problem=9" target="_blank">Page of the problem on Project Euler </a>';
+}
+?>

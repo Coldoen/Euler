@@ -37,3 +37,7 @@ function descriptionOutput($input, $output){
     return 0;
 }
 
+function moreInfos(){
+    echo '<a class="" aria-current="" href="https://projecteuler.net/problem=21" target="_blank">Page of the problem on Project Euler </a>';
+}
+?>
